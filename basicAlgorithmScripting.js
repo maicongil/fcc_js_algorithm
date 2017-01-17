@@ -7,9 +7,9 @@ BasicAlgorithmScripting = {
         return str.split('').reverse().join('');
     },
     factorialize : function(num){
-        var factorial =num;
-        for(var i = (num -1); i<=1;i--){
-            factorial*=  i;
+        var factorial = 1;
+        for(var i = num ; i>1; i--){
+            factorial*= i;
         }
         return factorial;
     }

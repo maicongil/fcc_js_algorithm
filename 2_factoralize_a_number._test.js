@@ -1,12 +1,4 @@
 'use strict.js'
-/*
-
-factorialize(5) should return a number.
-factorialize(5) should return 120.
-factorialize(10) should return 3628800.
-factorialize(20) should return 2432902008176640000.
-factorialize(0) should return 1. 
-*/
 
 var expect = require('chai').expect;
 
@@ -34,6 +26,18 @@ describe('#factorialize', function(){
     it('factorialize(10) should return 3628800',function(){
         var expected = 3628800;
         var actual = BasicAlgorithmScripting.factorialize(10);
+        expect(actual).to.be.eql(expected);
+    });
+
+    it('factorialize(20) should return 2432902008176640000',function(){
+        var expected = 2432902008176640000;
+        var actual = BasicAlgorithmScripting.factorialize(20);
+        expect(actual).to.be.eql(expected);
+    });
+
+    it('factorialize(0) should return 1',function(){
+        var expected = 1;
+        var actual = BasicAlgorithmScripting.factorialize(0);
         expect(actual).to.be.eql(expected);
     });
 
