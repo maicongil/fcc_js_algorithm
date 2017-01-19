@@ -1,4 +1,4 @@
-
+'use strict';
 
 var IntermediateAlgorithmScripting;
 
@@ -36,6 +36,9 @@ IntermediateAlgorithmScripting = {
             }));
         });
         return newArr;
+    },
+    fearNotLetter : function(str){
+        return "d";
     }
 };
 
