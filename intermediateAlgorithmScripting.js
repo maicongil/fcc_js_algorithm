@@ -38,6 +38,14 @@ IntermediateAlgorithmScripting = {
         return newArr;
     },
     fearNotLetter : function(str){
+        var previousChar = str.charCodeAt(0);
+        for(let i = 1; i< str.length; i++){
+            if(str.charCodeAt(i)-previousChar===2){
+                previousChar = String.fromCharCode(previousChar+1);
+                break;
+            }
+            previousChar = str.charCodeAt(i);
+        }
         return "d";
     }
 };
