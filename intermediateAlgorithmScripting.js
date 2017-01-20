@@ -48,6 +48,17 @@ IntermediateAlgorithmScripting = {
             previousChar = str.charCodeAt(i);
         }
         return missingLetter;
+    },
+    convertToRoman : function(num){
+        var roman='';
+        for(var i =1; i<=num; i++){
+            if(roman.length===3){
+                roman='IV';
+            }else{
+                roman+='I';
+            }
+        }
+        return roman;
     }
 };
 
