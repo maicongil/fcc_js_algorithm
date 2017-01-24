@@ -50,15 +50,57 @@ IntermediateAlgorithmScripting = {
         return missingLetter;
     },
     convertToRoman : function(num){
-        var roman='';
-        for(var i =1; i<=num; i++){
-            if(roman.length===3){
-                roman='IV';
-            }else{
-                roman+='I';
+
+        var decomposedNumbers = num.toString().split('').map(
+            function(val, idx, arr){
+                switch(arr.length - (idx+1)){
+                    case 3 : 
+                    return {'digit' : val, 'position' : 'thousands'};
+                    break;
+                     case 2 : 
+                    return {'digit' : val, 'position' : 'hundreds', nextPosition : 'thousands'};
+                    break;
+                     case 1 : 
+                    return {'digit' : val, 'position' : 'tens', nextPosition : 'hundreds'};
+                    break;
+                     case 0 : 
+                    return {'digit' : val, 'position' : 'ones', nextPosition : 'tens'};
+                    break;
+                }
             }
-        }
-        return roman;
+        );
+
+        var symbols = {
+            'ones' : ['I','V'],
+            'tens' : ['X','L'],
+            'hundreds' : ['C','D'],
+            'thousands' : ['M']
+        };
+
+
+        var romans =[];
+        decomposedNumbers.forEach(function(decomposedNumber){
+            var roman='';
+
+            for(var i =1; i<=decomposedNumber.digit; i++){
+                if(i===4){
+                    roman = symbols[decomposedNumber.position][0]+symbols[decomposedNumber.position][1];
+                }else if(i===5){
+                    roman = symbols[decomposedNumber.position][1];
+                }
+                else if(i===9){
+                    roman = symbols[decomposedNumber.position][0]+symbols[decomposedNumber.nextPosition][0];
+                }
+                else{
+                    roman+=symbols[decomposedNumber.position][0];
+                }
+            }
+
+            romans.push(roman);
+            
+        });
+
+        return romans.join('');
     }
 };
 
