@@ -47,7 +47,24 @@ AdvancedAlgorithmScripting = {
         }
 
         return change;
+    },
+
+    sym : function(){
+        var args = Array.from(arguments);
+       
+        var diff = function(arr1, arr2){
+            var diffArr = [] 
+
+            return diffArr;
+        }
+
+        var symArr = args.reduce(function(a, b){
+            return diff(a,  b);
+        });
+
+        return symArr.sort();
     }
+
 };
 
 module.exports = AdvancedAlgorithmScripting;
